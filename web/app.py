@@ -6,10 +6,10 @@ from bson import ObjectId
 
 app = Flask(__name__)
 
-mongo_uri = os.environ.get("MONGO_URI")
-db_name = os.environ.get("DB_NAME")
+mongo_uri = os.environ.get("mongodb://localhost:27017")
+db_name = os.environ.get("DB-R")
 
-client = MongoClient(mongo_uri)
+client = MongoClient("mongodb://localhost:27017")
 db = client[db_name]
 routers = db["routers"]
 interface_status = db["interface_status"]
